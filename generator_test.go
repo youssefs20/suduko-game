@@ -26,7 +26,6 @@ func TestCountSolutionsDetectsAmbiguity(t *testing.T) {
 
 func TestGenerate(t *testing.T) {
 	for _, d := range []Difficulty{Easy, Medium, Hard} {
-		d := d
 		t.Run(d.String(), func(t *testing.T) {
 			board, full := Generate(d)
 
