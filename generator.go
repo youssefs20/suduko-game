@@ -109,7 +109,7 @@ func removeClues(grid [9][9]int, target int) [9][9]int {
 }
 
 // countSolutions counts the solutions of grid by backtracking, stopping
-// early once limit is reached.
+// early once limit is reached; the returned count never exceeds limit.
 func countSolutions(grid [9][9]int, limit int) int {
 	var solve func(pos int) int
 	solve = func(pos int) int {
@@ -127,7 +127,7 @@ func countSolutions(grid [9][9]int, limit int) int {
 				count += solve(pos + 1)
 				grid[r][c] = 0
 				if count >= limit {
-					break
+					return limit
 				}
 			}
 		}
